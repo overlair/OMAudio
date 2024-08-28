@@ -15,7 +15,7 @@ import AudioKit
 extension Array where Element == Float {
     //  @see: HOW TO CREATE A SOUNDCLOUD LIKE WAVEFORM IN SWIFT 3
     //        (https://miguelsaldana.me/2017/03/13/how-to-create-a-soundcloud-like-waveform-in-swift-3/)
-    func downSampled(binSize: Int, multiplier: Float = 1.0) -> [Float] {
+    public func downSampled(binSize: Int, multiplier: Float = 1.0) -> [Float] {
         let count = self.count
 
         var processingBuffer = [Float](repeating: 0.0,
@@ -62,7 +62,7 @@ extension Array where Element == Float {
         return downSampledData
     }
 
-    func downSampled(numBins: Int, multiplier: Float = 1.0) -> [Float] {
+    public func downSampled(numBins: Int, multiplier: Float = 1.0) -> [Float] {
         let numSamplesPerPixel = Int(Float(self.count) / Float(numBins) * multiplier)
 
         return downSampled(binSize: numSamplesPerPixel, multiplier: 1.0)
@@ -70,7 +70,7 @@ extension Array where Element == Float {
     
     
     
-    func downsample(numBins: Int) -> [Float] {
+    public func downsample(numBins: Int) -> [Float] {
         let samples = self
         let count = samples.count
         let numSamplesPerPixel = Int(Float(count) / Float(numBins))
